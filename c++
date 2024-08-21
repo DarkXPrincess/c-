@@ -28,5 +28,13 @@ int main()
     }      
    if(num1<=0)
       cout<<"El numero no es natural, digite uno diferente"<<endl;
+    { 
+      if((num1%num2)==0 and num1>num2)
+
+         cout<<"El primero número es multiplo del segundo"<<endl;
+      else
+         
+            cout<<"El primero número no es multiplo del segundo"<<endl;
+    }    
    return 0;
 }
