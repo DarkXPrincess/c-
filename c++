@@ -17,9 +17,9 @@ int main()
    getline(cin,aux);
    num2=stoi(aux);
 
-   if((num1/num2))   num %2 ==0
-      num3=num1/num2;
+   if((num1%num2)==0)
 
          cout<<"El primero nùmero es multiplo del segundo"<<endl;
+   
    return 0;
 }
