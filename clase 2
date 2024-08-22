@@ -1,0 +1,144 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+
+   int matriz [5][6], opc, can=0, bus, reem;
+   string aux, salida="Los datos de la matriz son: \n";
+   do{
+      cout<<"Menu"
+         <<"\n1- LLENAR LA MATRIZ DE NUMEROS ALEATORIOS"
+         <<"\n2- MOSTRAR LA MATRIZ"
+         <<"\n3- MODIFICAR UN VALOR EN LA MATRIZ"
+         <<"\n4- SALIR:"<<endl;
+      getline(cin,aux);
+      opc=stoi(aux);
+
+      switch(opc)
+         {
+            case 1:
+               for(int fil=0; fil<5;fil++)
+               {
+                     for(int col=0;col<6;col++)
+                        {
+                           matriz[fil][col]=rand() %101;
+
+                        }
+               }
+               cout<<"SE LLENO LA MATRIZ"<<endl;
+               break;
+            
+            case 2:
+               salida="";
+               for(int i=0;i<5;i++)
+                  {
+                     for(int j=0;j<6;j++)
+                        salida=salida+to_string(matriz[i][j])+"\t";
+                     salida=salida+"\n";  
+                  }         
+               cout<<salida<<endl;
+               
+               break;
+            case 3:
+               
+               cout<<"Ingrese el dato a buscar: ";
+               getline(cin,aux);
+               bus=stoi(aux);
+               cout<<"Ingrese el dato de reemplazo; ";
+               getline(cin,aux);
+               reem=stoi(aux);
+               can=0;
+               for(int i=0;i<5;i++)
+                  {
+                     for(int j=0;j<6;j++)
+                        {
+                        if(matriz[i][j]==bus)
+                        {
+                           can++;
+                           matriz[i][j]=reem;
+                        }
+                  }
+                  }
+               cout<<"Se reemplazo en la matriz "<<can<<" veces"<<endl;
+               break;
+            case 4:
+               break;
+            default:cout<<"Opcion invalida, debe mostrar un numero de 1 a 4"<<endl;
+         }
+      
+   }while(opc!=4);
+   return 0;
+}
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string leer(string mensajeMostar) {
+  string aux = "";
+  do {
+    cout << mensajeMostar;
+    getline(cin, aux);
+  } while (aux == "");
+  return aux;
+}
+
+int main() {
+  int suma, opc;
+
+  string numeros[10];
+
+  do {
+    opc = stoi(leer(
+        "****MENU****\n1.Ingresar datos al arreglo\n2.Mostrar\n3.Sumar datos "
+        "del arreglo\n4.Mirar datos de las posiciones pares\n5.Salir: "));
+    switch (opc) {
+    case 1: // instrucciones para llenar el arreglo
+      cout << "-----LLENANDO ARREGLO-----" << endl;
+      for (int i = 0; i < 10; i++) {
+        numeros[i] = leer("Digite el numero [" + to_string(i) + "]=");
+      }
+      cout << "Los datos fueron ingresados!" << endl;
+      break;
+
+    case 2: // instrucciones para mostrar el arreglo
+      cout << "-----DATOS DEL ARREGLO-----"
+           << "\nNumero\n"
+           << endl;
+      for (int i = 0; i < 10; i++) {
+        cout << (i + 1) << "\t" << numeros[i] << endl;
+      }
+      break;
+
+    case 3:
+      cout << "----SUMA DE DATOS----" << endl;
+      suma = 0;
+      for (int i = 0; i < 10; i++) {
+        suma = suma + stoi(numeros[i]);
+      }
+      cout << "La suma de los numeros es: " << suma << endl;
+      break;
+
+    case 4: // instrucciones para mostrar el arreglo
+      cout << "-----DATOS DE POSICIONES PARES-----"
+           << "\nNumero\n"
+           << endl;
+      for (int i = 0; i < 10; i++) {
+        if (i % 2 == 0)
+          cout << i << "\t" << numeros[i] << endl;
+      }
+      break;
+
+    case 5:
+      cout << "Adios!" << endl;
+      break;
+    default:
+      cout << "Opcion invalida, debe mostrar un numero de 1 a 5" << endl;
+    }
+  } while (opc != 5);
+  return 0; 
+   
+}
+*/
